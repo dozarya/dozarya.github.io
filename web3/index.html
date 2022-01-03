@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>서울관광의 모든 것, Visit Seoul | 서울시 공식 관광정보 웹사이트</title>
+    <meta name="title" content="서울관광의 모든 것, Visit Seoul | 서울시 공식 관광정보 웹사이트">
+    <meta name="keyword" content="서울 관광">
+    <meta name="description" content="다양한 서울 여행 정보를 만나보세요. 서울의 명소, 맛집, 카페, 호텔, 축제, 공연, 에디터 추천 여행 등 서울의 놀거리. 교통, 가이드북, 지도 등 여행 시 필요한 유용한 서울관광정보를 서울관광재단 Visit Seoul이 제공합니다.">
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="서울관광의 모든 것, Visit Seoul" />
+    <meta property="og:description" content="다양한 서울 여행 정보를 만나보세요. 서울의 명소, 맛집, 카페, 호텔, 축제, 공연, 에디터 추천 여행 등 서울의 놀거리. 교통, 가이드북, 지도 등 여행 시 필요한 유용한 서울관광정보를 서울관광재단 Visit Seoul이 제공합니다." />
+    <meta property="og:site_name" content="" />
+    <meta property="og:type" content="" />
+    <link rel="shortcut icon" href="https://korean.visitseoul.net/humanframe/theme/basic/assets/images/img/pavi_16_16.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/grid.css">
+    <link rel="stylesheet" href="./css/Afonts.css">
+    <link rel="stylesheet" href="./js/slick.css">
+    <link rel="stylesheet" href="./js/slick-theme.css">
+    <script src="./js/slick.js"></script>
+    <style>
+    #item1{background-image: url("/source/item1.jpg");}
+    #item2{background-image: url("/source/item2.jpg");}
+    #item3{background-image: url("/source/item3.jpg");}
+    #item4{background-image: url("/source/item4.jpg");}
+    #item5{background-image: url("/source/item5.jpg");}
+
+    .vs{clear: both; position: relative; width: 100%; overflow-x: hidden;}
+    .vs .img_box{width: 400%;}
+    .vs .img_box li{ width: 25%; float: left;}
+    .vs .img_box li a{display: block; position: relative;}
+    .vs .img_box .vs_img{display: block; width: 100%; max-width: 100vw;}
+    .vs .img_box .tit_box{ position: absolute; top: 100px; left: 0; z-index: 4; 
+             padding: 400px 750px; color: #fff; text-align: center;}
+    .vs .img_box .vs_tit{ font-family: 'TTTogether'; font-size: 40px; font-weight: 400;
+            text-shadow: 2px 2px 15px #666; }
+    .vs .img_box .vs_com{ font-size: 24px; text-align: right; text-shadow: -2px -2px 2px #666;}
+        
+    .btn_box li button{background-color: transparent; display: block; width: 90px; 
+            height: 512px; background-repeat: no-repeat; background-position: center center; 
+            background-size: 100% 100%; position: absolute; top: 160px; z-index: 5; 
+            text-indent: -10000px; cursor: pointer; display: none;}
+    .btn_box li.btn1 button{left: 50px; background-image: url("./source/arrow2.png");}
+    .btn_box li.btn2 button{right: 50px; background-image: url("./source/arrow.png");}
+
+    #page1 { position: relative; padding-top: 190px;  background: url();}
+    #page1:before { content: ""; display: block; width: 440px; height: 400px;
+    position: absolute; background-color: #c0e6d7; border-radius: 50%; left: 50%;
+    margin-left: -220px; margin-top: -180px; }
+    .ptit_box { width: 440px; height: 440px; background-color: #9fccab; color:#fff;
+    text-align: center; padding-top: 300px; box-sizing: border-box; position: absolute; 
+    left: 50%; margin-left:-220px; border-radius: 50%; margin-top: -240px; }
+    .pg_tit2 { font-family: 'TTTogether'; font-size: 36px; width: 100%; clear: both; }
+    .col_tit { content: ""; display: block; width: 40px; height: 2px; background-color: #fff;
+    clear: both; margin: 0 auto; margin-top: 28px; }
+    .col_com { color: #fff; padding: 20px 60px; }
+    #page1 .col_link { display: block; width: 38px; height: 38px; clear: both; float: none;
+    margin: 10px auto; background-image: url("./img/"); background-repeat: no-repeat;
+    background-position: center center; border-radius: 21px; border: 2px solid #fff; 
+    text-indent: -10000px; transform:rotate(90deg); }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header class="hd">
+            <div class="hd_wrap">
+                <a href="index.html" class="logo">
+                    <img src="./img/logo.png" alt="" >
+                </a>
+                <nav class="tnb">
+                    <ul>
+                        <li><a href="">검색</a></li>
+                        <li><a href="login.html">로그인</a></li>
+                        <li><a href="join.html">회원가입</a></li>
+                    </ul>
+                </nav>
+                <nav class="gnb">
+                    <ul>
+                        <li>
+                            <a href="" class="gnb_tit">지금의 서울</a>
+                                <ul class="sub">
+                                    <li><a href="nowSeoul1.html">이벤트</a></li>
+                                    <li><a href="nowSeoul2.html">축제&행사</a></li>
+                                    <li><a href="nowSeoul3.html">전시</a></li>
+                                    <li><a href="nowSeoul4.html">공연</a></li>
+                                </ul>                
+                        </li>
+                        <li>
+                            <a href="" class="gnb_tit">추천</a>
+                                <ul class="sub">
+                                    <li><a href="recommend1.html">에디터 추천 여행</a></li>
+                                    <li><a href="recommend2.html">서울 관광 추천 테마코스</a></li>
+                                    <li><a href="recommend3.html">서울 도보 해설관광</a></li>
+                                    <li><a href="recommend4.html">한류관광</a></li>
+                                    <li><a href="recommend5.html">원 모어 트립</a></li>
+                                    <li><a href="recommend6.html">서울관광 할인 패스</a></li>
+                                    <li><a href="recommend7.html">서울 의료관광</a></li>
+                                    <li><a href="recommend8.html">서울 여행자 터미널</a></li>
+                                    <li><a href="recommend9.html">서울관광플라자</a></li>
+                                </ul>                            
+                        </li>
+                        <li>
+                            <a href="" class="gnb_tit">여행지</a>
+                                <ul class="sub">
+                                    <li><a href="place1.html">명소</a></li>
+                                    <li><a href="place2.html">자연&관광</a></li>
+                                    <li><a href="place3.html">엔터테인먼트</a></li>
+                                    <li><a href="place4.html">쇼핑</a></li>
+                                    <li><a href="place4.html">음식</a></li>
+                                    <li><a href="place5.html">호텔</a></li>
+                                    <li><a href="place6.html">게스트 하우스</a></li>
+                                </ul>                            
+                        </li>
+                        <li>
+                            <a href="" class="gnb_tit">지역</a>
+                                <ul class="sub">
+                                    <li><a href="area1.html">광화문</a></li>
+                                    <li><a href="area2.html">명동</a></li>
+                                    <li><a href="area3.html">동대문</a></li>
+                                    <li><a href="area4.html">홍대</a></li>
+                                    <li><a href="area5.html">여의도</a></li>
+                                    <li><a href="area6.html">이태원</a></li>
+                                    <li><a href="area7.html">강남</a></li>
+                                    <li><a href="area8.html">잠실</a></li>
+                                    <li><a href="area9.html">기타</a></li>
+                                </ul>                            
+                        </li>
+                        <li>
+                            <a href="" class="gnb_tit">여행정보</a>
+                                <ul class="sub">
+                                    <li><a href="information1.html">가이드북&지도</a></li>
+                                    <li><a href="information2.html">교통</a></li>
+                                    <li><a href="information3.html">서울시티투어버스</a></li>
+                                    <li><a href="information4.html">서울의 날씨</a></li>
+                                    <li><a href="information5.html">서울의 계절</a></li>
+                                    <li><a href="information6.html">지역 관광정보</a></li>
+                                    <li><a href="information7.html">서울 다누림관광</a></li>
+                                    <li><a href="information8.html">여행자 지원</a></li>
+                                    <li><a href="information9.html">코로나19 서울관광 안전지수(beta)</a></li>
+                                </ul>                            
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="content">
+            <figure class="vs">
+                <ul class="img_box">
+                    <li>
+                        <a href="">
+                            <img src="./img/seoul3.jpg" alt="" class="vs_img">
+                            <div class="tit_box">
+                                <h2 class="vs_tit">Your Seoul Gose On!</h2>
+                                <p class="vs_com">서울은 계속된다, 가장 서울답게!</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./img/seoul1.jpg" alt="" class="vs_img">
+                            <div class="tit_box">
+                                <h2 class="vs_tit">Your Seoul Gose On!</h2>
+                                <p class="vs_com">서울은 계속된다, 가장 서울답게!</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./img/seoul2.jpg" alt="" class="vs_img">
+                            <div class="tit_box">
+                                <h2 class="vs_tit">Your Seoul Gose On!</h2>
+                                <p class="vs_com">서울은 계속된다, 가장 서울답게!</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./img/seoul.jpg" alt="" class="vs_img">
+                            <div class="tit_box">
+                                <h2 class="vs_tit">Your Seoul Gose On!</h2>
+                                <p class="vs_com">서울은 계속된다, 가장 서울답게!</p>
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+                <ul class="btn_box">
+                    <li class="btn1"><button>이전</button></li>
+                    <li class="btn2"><button>다음</button></li>
+                </ul>
+            </figure>
+            <script>
+                $('.img_box').slick({
+                    dots:true,
+                    infinite:true,
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                });
+            </script>
+                <section class="page" id="page1">
+                    <div class="ptit_box">
+                        <h2 class="pg_tit1">서울에서 겨울 맞이하기</h4>
+                        <h4 class="pg_tit2">분위기 있는 서울</h2>
+                        <h4 class="pg_tit3">로맨틱한 연말</h2>
+                        <h4 class="pg_tit4">로컬 문화체험</h2>
+                    </div>
+                    <div class="page_wrap">
+                        <ul class="grid">
+                            <li class="col6">
+                                <div class="col6">
+                                    <h3 class="col_tit">서울 북카페</h3>
+                                </div>
+                                <div class="col6">
+                                    <h3 class="col_tit">서울의 양조장</h3>
+                                </div>
+                                <div class="col6">
+                                    <h3 class="col_tit">더현대 서울 디저트 모음</h3>
+                                </div>
+                            </li>
+                            <li class="col6">
+                                <div class="col12"><img src="" alt=""></div>
+                                <div class="col12"><img src="" alt=""></div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="page" id="page2">
+                    <div class="ptit_box">
+                        <h4 class="pg_tit1">더현대 서울</h4>
+                        <h4 class="pg_tit2">코엑스몰</h4>
+                    </div>
+                    <div class="page_wrap">
+                        <ul class="grid">
+                            <li class="col6">
+                                <div class="half_box col_item" id="item6">
+                                    <input type="radio" id="ra1" class="ra">
+                                    <input type="radio" id="ra2" class="ra">
+                                    <input type="radio" id="ra3" class="ra">
+                                    <input type="radio" id="ra4" class="ra">
+                                    <ul class="pic_ban">
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+                                    <ul class="thumb_ban">
+                                        <li>
+                                            <h3 class="th_tit"></h3>
+                                            <label for="" class="lb1"></label>
+                                            <div class="tbox"><img src="" alt=""></div>
+                                            <label for="" class="lb2"></label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="col6">
+                                <div class="col6">
+                                    <h3 class="col_tit"></h3>
+                                    <p class="col_com"></p>
+                                    <a href="" class="col_link"></a>
+                                </div>
+                                <div class="col6">
+                                    <h3 class="col_tit"></h3>
+                                    <p class="col_com"></p>
+                                    <a href="" class="col_link"></a>
+                                </div>
+                                <div class="col6">
+                                    <h3 class="col_tit"></h3>
+                                    <p class="col_com"></p>
+                                    <a href="" class="col_link"></a>
+                                </div>
+                                <div class="col6">
+                                    <h3 class="col_tit"></h3>
+                                    <p class="col_com"></p>
+                                    <a href="" class="col_link"></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="page" id="page3">
+                    <h2 class="hid_tit"></h2>
+                    <div class="page_wrap">
+                        <ul class="icon_lst">
+                            <li class="item1">
+                                <span class="iconn_txt"></span>
+                                <div class="icon_box"><img src="" alt=""></div>
+                            </li>
+                        </ul>
+                        <ul class="new_lst">
+                            <li class="col6">
+                                <h3 class="new_tit"></h3>
+                                <a href="" class="more"></a>
+                                <ul class="noti_lst">
+                                    <li class="act">
+                                        <h4 class="noti_tit"></h4>
+                                        <p class="noti_com"></p>
+                                    </li>
+                                    <li>
+                                        <h4 class="noti_tit"></h4>
+                                        <p class="noti_date"></p>
+                                    </li>
+                                    <li>
+                                        <h4 class="noti_tit"></h4>
+                                        <p class="noti_date"></p>
+                                    </li>
+                                    <li>
+                                        <h4 class="noti_tit"></h4>
+                                        <p class="noti_date"></p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="col6">
+                                <div class="al_box">
+                                    <h3 class="al_tit"></h3>
+                                    <p class="al_com"></p>
+                                    <ul class="al_btn_fr">
+                                        <li><button class="prev"></button></li>
+                                        <li><button class="play"></button></li>
+                                        <li><button class="next"></button></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <div class="photo_box">
+                                <ul class="photo_fr">
+                                    <li>
+                                        <img src="" alt="" class="photo_img">
+                                        <h4 class="photo_tit"></h4>
+                                        <p class="photo_com"></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ul>
+                    </div>
+                </section>
+        </div>
+        <footer class="ft">
+            <nav class="fnb">
+                <ul class="fnb_fr">
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </nav>
+            <div class="ft_wrap">
+                <nav class="linkbar">
+                    <ul>
+                        <li><a href=""></a></li>
+                        <li><a href=""></a></li>
+                        <li><a href=""></a></li>
+                        <li><a href=""></a></li>
+                        <li><a href=""></a></li>
+                    </ul>
+                </nav>
+                <div class="copyright">
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="wa"><img src="" alt=""></div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
