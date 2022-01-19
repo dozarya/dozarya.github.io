@@ -1,0 +1,153 @@
+<header class="hd">
+    <div class="hd_wrap">
+        <a href="../index.html" class="logo">
+            <img src="/include/source/logo.png" alt="" >
+            <h2 class="logo_tit">서울관광</h2>
+        </a>
+        <nav class="tnb">
+            <ul>
+            	<c:if test="${member == null }">
+                <li><a href="">검색</a></li>
+                <li><a href="../member/login.html">로그인</a></li>
+                <li><a href="../member/join.html">회원가입</a></li>
+                </c:if>
+                <c:if test="${member !=null }">
+                <li><a href="">검색</a></li>
+                <li><a href="/member/logout.html">로그아웃</a></li>
+                <li><a href="../member/mypage.html">마이페이지</a></li>
+                </c:if>
+                <c:if test="${member.userid == 'admin' }">
+                <li><a href="../board/board_list.html">게시판 관리</a></li>
+                <li><a href="../member/member_list.html">회원 관리</a></li>
+                </c:if>
+            </ul>
+        </nav>
+        <nav class="gnb">
+                <ul>
+                    <li>
+                        <a href=".html" class="dp1">지금의 서울</a>
+                        <ul class="sub">
+                            <li><a href="../subpage/nowSeoul.html">NOW SEOUL</a>
+                                <!-- 하위메뉴 -->
+                                <dl class="detail">
+                                    <dd><a href="">이벤트</a></dd>
+                                    <dd><a href="">축제&행사</a></dd>
+                                    <dd><a href="">전시</a></dd>
+                                    <dd><a href="">공연</a></dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href=".html" class="dp1">추천</a>
+                        <ul class="sub">
+                            <li><a href=".html">RECOMMEND</a>
+                                <!-- 하위메뉴 -->
+                                <dl class="detail">
+                                    <dd><a href="">에디터 추천 여행</a></dd>
+                                    <dd><a href="">서울 관광 추천 테마코스</a></dd>
+                                    <dd><a href="">서울 도보 해설관광</a></dd>
+                                    <dd><a href="">한류관광</a></dd>
+                                    <dd><a href="">원 모어 트립</a></dd>
+                                    <dd><a href="">서울관광 할인 패스</a></dd>
+                                    <dd><a href="">서울 의료관광</a></dd>
+                                    <dd><a href="">서울 여행자 터미널</a></dd>
+                                    <dd><a href="">서울관광플라자</a></dd>
+                                </dl>  
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href=".html" class="dp1">여행지</a>
+                        <ul class="sub">
+                            <li><a href=".html">TRAVEL</a>
+                                <!-- 하위메뉴 -->
+                                <dl class="detail">
+                                    <dd><a href="">명소</a></dd>
+                                    <dd><a href="">자연&관광</a></dd>
+                                    <dd><a href="">엔터테인먼트</a></dd>
+                                    <dd><a href="">쇼핑</a></dd>
+                                    <dd><a href="">음식</a></dd>
+                                    <dd><a href="">호텔</a></dd>
+                                    <dd><a href="">게스트 하우스</a></dd>
+                                </dl>  
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href=".html" class="dp1">지역</a>
+                        <ul class="sub">
+                            <li><a href=".html">PLACE</a>
+                                <!-- 하위메뉴 -->
+                                <dl class="detail">
+                                    <dd><a href="">광화문</a></dd>
+                                    <dd><a href="">명동</a></dd>
+                                    <dd><a href="">동대문</a></dd>
+                                    <dd><a href="">홍대</a></dd>
+                                    <dd><a href="">여의도</a></dd>
+                                    <dd><a href="">이태원</a></dd>
+                                    <dd><a href="">강남</a></dd>
+                                    <dd><a href="">잠실</a></dd>
+                                    <dd><a href="">기타</a></dd>
+                                </dl>  
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="information.html" class="dp1">여행정보</a>
+                        <ul class="sub">
+                            <li><a href="">INFORMATION</a>
+                                <!-- 하위메뉴 -->
+                                <dl class="detail">
+                                    <dd><a href="">가이드북&지도</a></dd>
+                                    <dd><a href="">교통</a></dd>
+                                    <dd><a href="">서울시티투어버스</a></dd>
+                                    <dd><a href="">서울의 날씨</a></dd>
+                                    <dd><a href="">서울의 계절</a></dd>
+                                    <dd><a href="">지역 관광정보</a></dd>
+                                    <dd><a href="">서울 다누림관광</a></dd>
+                                    <dd><a href="">여행자 지원</a></dd>
+                                    <dd><a href="">코로나19 안전지수</a></dd>
+                                </dl>  
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../board/board_list.html" class="dp1">커뮤니티</a>
+                        <ul class="sub">
+                            <li><a href="community.html">묻고 답하기</a>
+                                <!-- 하위내용 -->
+                                <div class="detail_con">
+
+                                </div>
+                            </li>
+                            <li><a href="notice.html">공지사항</a>
+                                <!-- 하위내용 -->
+                                <div class="detail_con">
+
+                                </div>
+                            </li>
+                            <li><a href="gallery.html">포토 갤러리</a>
+                                <!-- 하위내용 -->
+                                <div class="detail_con">
+
+                                </div>
+                            </li>
+                            <li><a href="impress.html">이용 후기</a>
+                                <!-- 하위내용 -->
+                                <div class="detail_con">
+
+                                </div>
+                            </li>
+                            <li><a href="certifyingshot.html">인증샷 갤러리</a>
+                                <!-- 하위내용 -->
+                                <div class="detail_con">
+
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>

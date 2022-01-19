@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>subpage</title>
+<meta charset="UTF-8">
+<title>서울관광의 모든 것, Visit Seoul | 서울시 공식 관광정보 웹사이트</title>
+<!-- 뷰포트 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=, initial-scale=1.0">
+<!-- 메타포 설정 -->
+<meta name="title" content="서울관광의 모든 것, Visit Seoul | 서울시 공식 관광정보 웹사이트">
+<meta name="keyword" content="서울 관광">
+<meta name="description" content="다양한 서울 여행 정보를 만나보세요. 서울의 명소, 맛집, 카페, 호텔, 축제, 공연, 에디터 추천 여행 등 서울의 놀거리. 교통, 가이드북, 지도 등 여행 시 필요한 유용한 서울관광정보를 서울관광재단 Visit Seoul이 제공합니다.">
+<!-- 오픈그래프 설정 -->
+<meta property="og:url" content="http://dozarya.github.io/web3" />
+<meta property="og:title" content="서울관광의 모든 것, Visit Seoul" />
+<meta property="og:description" content="다양한 서울 여행 정보를 만나보세요. 서울의 명소, 맛집, 카페, 호텔, 축제, 공연, 에디터 추천 여행 등 서울의 놀거리. 교통, 가이드북, 지도 등 여행 시 필요한 유용한 서울관광정보를 서울관광재단 Visit Seoul이 제공합니다." />
+<meta property="og:site_name" content="" />
+<meta property="og:type" content="" />
+<!-- 파비콘 설정 -->
+<link rel="shortcut icon" href="https://korean.visitseoul.net/humanframe/theme/basic/assets/images/img/pavi_16_16.png" />
+<!-- 폰트 설정 -->
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+<!-- 필수 API 설정 -->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="../include/datatables.min.js"></script>
+<script src="/include/js/slick.js"></script>
+<link rel="stylesheet" href="./include/js/owl.carousel.css">
+<script src="./include/js/owl.carousel.js"></script>
+<link rel="stylesheet" href="../include/datatables.min.css">
+<link rel="stylesheet" href="/include/js/slick.css">
+<link rel="stylesheet" href="/include/js/slick-theme.css">
+
+<!-- 외부 스타일 설정 -->
+<link rel="stylesheet" href="../include/css/common.css" />
+<link rel="stylesheet" href="../include/css/fonts.css" />
+<link rel="stylesheet" href="../include/css/grid.css" />
+
+<style>
+    .vs { clear: both; width: 100%; height: 460px; background-image: url(); 
+        background-position: center center;  background-repeat: no-repeat; z-index: 0; }
+    .vs_img { display: block; margin: 0 auto; z-index: 5; }
+    .content_wrap { clear: both; width: 1200px; margin: 0 auto; margin-top: -150px; }
+    .sub_tit { height: 144px; line-height: 144px; font-size: 22px; 
+        background-color: #adaccb; text-align: center; width: 190px; float: left; color: #fff; margin-left:-2px; margin-top:172px; z-index: 10; }
+    .bread_box { height: 120px; background-color: #fff; width: 980px; float: right; padding-left: 32px; 
+        padding-top: 44px; border-bottom: 1px solid #999; position: relative; margin-top: 151px; }
+    .cate_tit { color: #999; font-size: 24px; }
+    .bread { padding-top: 24px; line-height: 1.6; font-size: 16px; }
+    .bread a { color: #999; }
+    .bread span .cur { color: #222; font-weight: 600; }
+    .sub_tit_ico_box { position:absolute; right: 30px; bottom: 14px; }
+    .sub_tit_ico_box li { float: left; margin-left: 10px; }
+    .sub_tit_ico_box li a { display: block; color: #fff; }
+    .sub_tit_ico_box li a.ico { width: 34px; height: 34px; background-position: center center; 
+        background-repeat: no-repeat; border-radius: 18px; border: 1px solid #ccc; }
+    .sub_tit_ico_box li a.ico.item1 { background-image: url(); }
+    .sub_tit_ico_box .btn { border-radius: 18px; padding: 10px 12px; width: auto; 
+        background-color: #999; font-size: 14px; }
+    .leftbar { width: 190px; float: left; min-height: 37vh; background-color: #f0f0f0; margin-left:350px; padding-top: 23px; margin-top: 0; }
+    .lnb { clear: both; }
+    .lnb li { clear: both; margin: 5px 6px; border: 1px solid #aaa; line-height: 52px; }
+    .lnb li a { color:#222; font-size: 14px; padding-left: 1em; }
+    .page_box { width: 980px; padding-left: 30px; float: left; }
+    .page { padding-top: 40px; overflow: none; height: auto; min-height: 100vh; }
+    .page_wrap { text-align: center; }
+    .page_tit { padding-bottom: 36px; color:#666; }
+    .sub_pic_img { display: block; width: 100%; height: auto; }
+    .sub_pic_tit { font-size: 20px; line-height: 1.6; }
+    .sub_pic_com { font-size: 14px; line-height: 1.6; padding-bottom: 24px; }
+    .sub_full_tit { color : #495e74; line-height: 3; font-size: 32px; text-align: center; }
+    .sub_con img { display: block; max-width: 100%; }
+    .sub_cate_com { padding: 14px; font-size: 12px; color:#666; line-height: 1.8; 
+        width: 940px; font-weight: 300; }
+	.onepage { clear: both; float: left; width: 960px; height: 500px; border-bottom: 1px solid gary;}
+	.onepage h2 { text-align: center; padding-top: 50px; }
+	.subimg1 { float: left; padding-top: 50px; }
+	.subimg2 { float: right; padding-top:80px; }
+	.page { display:none; }
+    .page:target { display:block; margin-bottom: 112px; }
+
+</style>
+</head>
+<body>
+    <header class="hd">
+        <div class="hd_wrap">
+            <a href="../index.html" class="logo">
+                <img src="/include/source/logo.png" alt="" >
+                <h2 class="logo_tit">서울관광</h2>
+            </a>
+            <nav class="tnb">
+                <ul>
+                    <c:if test="${member == null }">
+                    <li><a href="">검색</a></li>
+                    <li><a href="../member/login.html">로그인</a></li>
+                    <li><a href="../member/join.html">회원가입</a></li>
+                    </c:if>
+                    <c:if test="${member !=null }">
+                    <li><a href="">검색</a></li>
+                    <li><a href="/member/logout.html">로그아웃</a></li>
+                    <li><a href="../member/mypage.html">마이페이지</a></li>
+                    </c:if>
+                    <c:if test="${member.userid == 'admin' }">
+                    <li><a href="../board/board_list.html">게시판 관리</a></li>
+                    <li><a href="../member/member_list.html">회원 관리</a></li>
+                    </c:if>
+                </ul>
+            </nav>
+            <nav class="gnb">
+                    <ul>
+                        <li>
+                            <a href=".html" class="dp1">지금의 서울</a>
+                            <ul class="sub">
+                                <li><a href="../subpage/nowSeoul.html">NOW SEOUL</a>
+                                    <!-- 하위메뉴 -->
+                                    <dl class="detail">
+                                        <dd><a href="">이벤트</a></dd>
+                                        <dd><a href="">축제&행사</a></dd>
+                                        <dd><a href="">전시</a></dd>
+                                        <dd><a href="">공연</a></dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href=".html" class="dp1">추천</a>
+                            <ul class="sub">
+                                <li><a href=".html">RECOMMEND</a>
+                                    <!-- 하위메뉴 -->
+                                    <dl class="detail">
+                                        <dd><a href="">에디터 추천 여행</a></dd>
+                                        <dd><a href="">서울 관광 추천 테마코스</a></dd>
+                                        <dd><a href="">서울 도보 해설관광</a></dd>
+                                        <dd><a href="">한류관광</a></dd>
+                                        <dd><a href="">원 모어 트립</a></dd>
+                                        <dd><a href="">서울관광 할인 패스</a></dd>
+                                        <dd><a href="">서울 의료관광</a></dd>
+                                        <dd><a href="">서울 여행자 터미널</a></dd>
+                                        <dd><a href="">서울관광플라자</a></dd>
+                                    </dl>  
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href=".html" class="dp1">여행지</a>
+                            <ul class="sub">
+                                <li><a href=".html">TRAVEL</a>
+                                    <!-- 하위메뉴 -->
+                                    <dl class="detail">
+                                        <dd><a href="">명소</a></dd>
+                                        <dd><a href="">자연&관광</a></dd>
+                                        <dd><a href="">엔터테인먼트</a></dd>
+                                        <dd><a href="">쇼핑</a></dd>
+                                        <dd><a href="">음식</a></dd>
+                                        <dd><a href="">호텔</a></dd>
+                                        <dd><a href="">게스트 하우스</a></dd>
+                                    </dl>  
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href=".html" class="dp1">지역</a>
+                            <ul class="sub">
+                                <li><a href=".html">PLACE</a>
+                                    <!-- 하위메뉴 -->
+                                    <dl class="detail">
+                                        <dd><a href="">광화문</a></dd>
+                                        <dd><a href="">명동</a></dd>
+                                        <dd><a href="">동대문</a></dd>
+                                        <dd><a href="">홍대</a></dd>
+                                        <dd><a href="">여의도</a></dd>
+                                        <dd><a href="">이태원</a></dd>
+                                        <dd><a href="">강남</a></dd>
+                                        <dd><a href="">잠실</a></dd>
+                                        <dd><a href="">기타</a></dd>
+                                    </dl>  
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="information.html" class="dp1">여행정보</a>
+                            <ul class="sub">
+                                <li><a href="">INFORMATION</a>
+                                    <!-- 하위메뉴 -->
+                                    <dl class="detail">
+                                        <dd><a href="">가이드북&지도</a></dd>
+                                        <dd><a href="">교통</a></dd>
+                                        <dd><a href="">서울시티투어버스</a></dd>
+                                        <dd><a href="">서울의 날씨</a></dd>
+                                        <dd><a href="">서울의 계절</a></dd>
+                                        <dd><a href="">지역 관광정보</a></dd>
+                                        <dd><a href="">서울 다누림관광</a></dd>
+                                        <dd><a href="">여행자 지원</a></dd>
+                                        <dd><a href="">코로나19 안전지수</a></dd>
+                                    </dl>  
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="../board/board_list.html" class="dp1">커뮤니티</a>
+                            <ul class="sub">
+                                <li><a href="community.html">묻고 답하기</a>
+                                    <!-- 하위내용 -->
+                                    <div class="detail_con">
+    
+                                    </div>
+                                </li>
+                                <li><a href="notice.html">공지사항</a>
+                                    <!-- 하위내용 -->
+                                    <div class="detail_con">
+    
+                                    </div>
+                                </li>
+                                <li><a href="gallery.html">포토 갤러리</a>
+                                    <!-- 하위내용 -->
+                                    <div class="detail_con">
+    
+                                    </div>
+                                </li>
+                                <li><a href="impress.html">이용 후기</a>
+                                    <!-- 하위내용 -->
+                                    <div class="detail_con">
+    
+                                    </div>
+                                </li>
+                                <li><a href="certifyingshot.html">인증샷 갤러리</a>
+                                    <!-- 하위내용 -->
+                                    <div class="detail_con">
+    
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+<div class="wrap">
+    <script>
+    $(document).ready(function(){
+        $(".lnb ul li").click(function(){
+            $(".lnb ul li").removeClass("act");
+            $(this).addClass("act");
+        });
+        $(".sub > li").click(function(){
+            $(".lnb ul li").removeClass("act");
+            var t = $(this).index();
+            $(".lnb ul li").eq(t).addClass("act");
+        });
+    });    
+    </script>
+   <figure class="vs" id="vs">
+       <img src="../include/source/nowseoul4main.jpg" alt="공연이미지" class="vs_img">
+   </figure>
+   <div class="content_wrap">
+       <div class="sub_box">
+           <h2 class="sub_tit">지금의 서울</h2>
+           <div class="bread_box">
+               <h3 class="cate_tit"></h3>
+               <p class="bread"><a href="">홈</a><a href="">>지금의 서울></a>
+                   <span class="cur">NOWSEOUL</span></p>
+                   <ul class="sub_tit_ico_box">
+                       <li><a href="" class="ico item1"></a></li>
+                       <li><a href="" class="ico item2"></a></li>
+                       <li><a href="" class="btn">정보수정요청</a></li>
+                   </ul>
+           </div>
+       </div>
+   </div>
+   <aside class="leftbar">
+       <nav class="lnb">
+           <ul>
+               <li><a href="#page1">이벤트</a></li>
+               <li><a href="#page2">축제</a></li>
+               <li><a href="#page3">뮤지컬</a></li>
+               <li><a href="#page4">공연</a></li>
+           </ul>
+       </nav>
+   </aside>
+   <div class="page_box">
+		<section class="onepage">
+		    <h2 class="submainimg">NOWSEOUL</h2>
+		    <img src="../include/source/charlotte.jpg" alt="샤롯대시어터" class="subimg2"><br>
+		    <img src="../include/source/sac.jpg" alt="예술의전당" class="subimg1">
+		</section>
+       <section class="page" id="page1">
+           <h2 class="page_tit">이벤트</h2>
+           <div class="page_wrap"></div>
+           <img src="../include/source/nowseoul4sub.jpg" alt="서브페이지_본문이미지4" class="sub_img">
+       </section>
+       <section class="page" id="page2">
+           <h2 class="page_tit">행사 & 축제</h2>
+           <div class="page_wrap"></div>
+           <img src="../include/source/nowseoul4sub.jpg" alt="서브페이지_본문이미지4" class="sub_img">
+       </section>
+       <section class="page" id="page3">
+			<h2 class="page_tit">뮤지컬</h2>
+			<div class="page_wrap">
+			    <figure class="sub_pic">
+			        <h3 class="sub_pic_tit">롯데월드 샤롯데씨어터</h3>
+			        <p class="sub_pic_com">서울특별시 잠실에 있는 대한민국 최초의 뮤지컬 전용극장이다. 2006년 10월 28일 처음 개관하였다. 개장 이후 미국 브로드웨이, 영국 웨스트엔드에서 공연하는 뮤지컬을 주로 상영하고 있다.대표적인 상영작으로는 《라이온 킹》《맘마미아》《오페라의 유령》를 들 수 있다.</p>
+			    </figure>
+			    <article class="sub_con">
+			        <h3 class="sub_cate_tit">위치 : 서울 송파구 올림픽로 240</h3>
+			        <img src="./source/sub1_3_5.jpg" alt="">
+				</article>
+			<!-- * 카카오맵 - 지도퍼가기 -->
+			<!-- 1. 지도 노드 -->
+			<div id="daumRoughmapContainer1641538621652" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+			<!--
+				2. 설치 스크립트
+				* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+			-->
+			<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+			<!-- 3. 실행 스크립트 -->
+			<script charset="UTF-8">
+				new daum.roughmap.Lander({
+					"timestamp" : "1641538621652",
+					"key" : "28qak",
+					"mapWidth" : "640",
+					"mapHeight" : "360"
+				}).render();
+			</script>
+       </section>
+       <section class="page" id="page4">
+           <h2 class="page_tit">공연</h2>
+           <div class="page_wrap"></div>
+           <img src="../include/source/nowseoul4sub.jpg" alt="서브페이지_본문이미지4" class="sub_img">
+       </section>
+   </div>
+</div>
+
+</body>
+</html>

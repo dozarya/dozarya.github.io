@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>게시판 목록</title>
+<meta charset="UTF-8">
+<title>서울관광의 모든 것, Visit Seoul | 서울시 공식 관광정보 웹사이트</title>
+<!-- 뷰포트 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=, initial-scale=1.0">
+<!-- 메타포 설정 -->
+<meta name="title" content="서울관광의 모든 것, Visit Seoul | 서울시 공식 관광정보 웹사이트">
+<meta name="keyword" content="서울 관광">
+<meta name="description" content="다양한 서울 여행 정보를 만나보세요. 서울의 명소, 맛집, 카페, 호텔, 축제, 공연, 에디터 추천 여행 등 서울의 놀거리. 교통, 가이드북, 지도 등 여행 시 필요한 유용한 서울관광정보를 서울관광재단 Visit Seoul이 제공합니다.">
+<!-- 오픈그래프 설정 -->
+<meta property="og:url" content="http://dozarya.github.io/web3" />
+<meta property="og:title" content="서울관광의 모든 것, Visit Seoul" />
+<meta property="og:description" content="다양한 서울 여행 정보를 만나보세요. 서울의 명소, 맛집, 카페, 호텔, 축제, 공연, 에디터 추천 여행 등 서울의 놀거리. 교통, 가이드북, 지도 등 여행 시 필요한 유용한 서울관광정보를 서울관광재단 Visit Seoul이 제공합니다." />
+<meta property="og:site_name" content="" />
+<meta property="og:type" content="" />
+<!-- 파비콘 설정 -->
+<link rel="shortcut icon" href="https://korean.visitseoul.net/humanframe/theme/basic/assets/images/img/pavi_16_16.png" />
+<!-- 폰트 설정 -->
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+<!-- 필수 API 설정 -->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="../include/datatables.min.js"></script>
+<script src="/include/js/slick.js"></script>
+<link rel="stylesheet" href="./include/js/owl.carousel.css">
+<script src="./include/js/owl.carousel.js"></script>
+<link rel="stylesheet" href="../include/datatables.min.css">
+<link rel="stylesheet" href="/include/js/slick.css">
+<link rel="stylesheet" href="/include/js/slick-theme.css">
+
+<!-- 외부 스타일 설정 -->
+<link rel="stylesheet" href="/include/css/common.css" />
+<link rel="stylesheet" href="/include/css/fonts.css" />
+<link rel="stylesheet" href="/include/css/grid.css" />
+
+<style>
+	h2 { text-align: center; padding-top: 50px; }
+	.blank { clear:both; float:none; width:100%; height:60px; } 
+	.dataTables_wrapper { width : 1200px; margin: 100px auto; }
+	table.dataTable tbody th, table.dataTable tbody td { text-align: center; }
+	.btn { display:block; line-height:32px; width:50px; padding: 5px 40px; margin: 30px auto;
+	background-color:black; color:#fff; text-align: center; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+	<header class="hd">
+		<div class="hd_wrap">
+			<a href="../index.html" class="logo">
+				<img src="/include/source/logo.png" alt="" >
+				<h2 class="logo_tit">서울관광</h2>
+			</a>
+			<nav class="tnb">
+				<ul>
+					<c:if test="${member == null }">
+					<li><a href="">검색</a></li>
+					<li><a href="../member/login.html">로그인</a></li>
+					<li><a href="../member/join.html">회원가입</a></li>
+					</c:if>
+					<c:if test="${member !=null }">
+					<li><a href="">검색</a></li>
+					<li><a href="/member/logout.html">로그아웃</a></li>
+					<li><a href="../member/mypage.html">마이페이지</a></li>
+					</c:if>
+					<c:if test="${member.userid == 'admin' }">
+					<li><a href="../board/board_list.html">게시판 관리</a></li>
+					<li><a href="../member/member_list.html">회원 관리</a></li>
+					</c:if>
+				</ul>
+			</nav>
+			<nav class="gnb">
+					<ul>
+						<li>
+							<a href=".html" class="dp1">지금의 서울</a>
+							<ul class="sub">
+								<li><a href="../subpage/nowSeoul.html">NOW SEOUL</a>
+									<!-- 하위메뉴 -->
+									<dl class="detail">
+										<dd><a href="">이벤트</a></dd>
+										<dd><a href="">축제&행사</a></dd>
+										<dd><a href="">전시</a></dd>
+										<dd><a href="">공연</a></dd>
+									</dl>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href=".html" class="dp1">추천</a>
+							<ul class="sub">
+								<li><a href=".html">RECOMMEND</a>
+									<!-- 하위메뉴 -->
+									<dl class="detail">
+										<dd><a href="">에디터 추천 여행</a></dd>
+										<dd><a href="">서울 관광 추천 테마코스</a></dd>
+										<dd><a href="">서울 도보 해설관광</a></dd>
+										<dd><a href="">한류관광</a></dd>
+										<dd><a href="">원 모어 트립</a></dd>
+										<dd><a href="">서울관광 할인 패스</a></dd>
+										<dd><a href="">서울 의료관광</a></dd>
+										<dd><a href="">서울 여행자 터미널</a></dd>
+										<dd><a href="">서울관광플라자</a></dd>
+									</dl>  
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href=".html" class="dp1">여행지</a>
+							<ul class="sub">
+								<li><a href=".html">TRAVEL</a>
+									<!-- 하위메뉴 -->
+									<dl class="detail">
+										<dd><a href="">명소</a></dd>
+										<dd><a href="">자연&관광</a></dd>
+										<dd><a href="">엔터테인먼트</a></dd>
+										<dd><a href="">쇼핑</a></dd>
+										<dd><a href="">음식</a></dd>
+										<dd><a href="">호텔</a></dd>
+										<dd><a href="">게스트 하우스</a></dd>
+									</dl>  
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href=".html" class="dp1">지역</a>
+							<ul class="sub">
+								<li><a href=".html">PLACE</a>
+									<!-- 하위메뉴 -->
+									<dl class="detail">
+										<dd><a href="">광화문</a></dd>
+										<dd><a href="">명동</a></dd>
+										<dd><a href="">동대문</a></dd>
+										<dd><a href="">홍대</a></dd>
+										<dd><a href="">여의도</a></dd>
+										<dd><a href="">이태원</a></dd>
+										<dd><a href="">강남</a></dd>
+										<dd><a href="">잠실</a></dd>
+										<dd><a href="">기타</a></dd>
+									</dl>  
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="information.html" class="dp1">여행정보</a>
+							<ul class="sub">
+								<li><a href="">INFORMATION</a>
+									<!-- 하위메뉴 -->
+									<dl class="detail">
+										<dd><a href="">가이드북&지도</a></dd>
+										<dd><a href="">교통</a></dd>
+										<dd><a href="">서울시티투어버스</a></dd>
+										<dd><a href="">서울의 날씨</a></dd>
+										<dd><a href="">서울의 계절</a></dd>
+										<dd><a href="">지역 관광정보</a></dd>
+										<dd><a href="">서울 다누림관광</a></dd>
+										<dd><a href="">여행자 지원</a></dd>
+										<dd><a href="">코로나19 안전지수</a></dd>
+									</dl>  
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="../board/board_list.html" class="dp1">커뮤니티</a>
+							<ul class="sub">
+								<li><a href="community.html">묻고 답하기</a>
+									<!-- 하위내용 -->
+									<div class="detail_con">
+	
+									</div>
+								</li>
+								<li><a href="notice.html">공지사항</a>
+									<!-- 하위내용 -->
+									<div class="detail_con">
+	
+									</div>
+								</li>
+								<li><a href="gallery.html">포토 갤러리</a>
+									<!-- 하위내용 -->
+									<div class="detail_con">
+	
+									</div>
+								</li>
+								<li><a href="impress.html">이용 후기</a>
+									<!-- 하위내용 -->
+									<div class="detail_con">
+	
+									</div>
+								</li>
+								<li><a href="certifyingshot.html">인증샷 갤러리</a>
+									<!-- 하위내용 -->
+									<div class="detail_con">
+	
+									</div>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+	<h2 class="title">게시판 목록</h2>
+
+	<table class="table" id="data">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>글쓴이</th>
+				<th>작성일자</th>
+				<th>조회수</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${list}" var="row">
+			<tr>
+				<td>${row.bno}</td>
+				<td><a href="board_read.html">${row.title}</a></td>
+				<td>${row.writer}</td>
+				<td>
+					<fmt:formatDate value="${row.regdate}" pattern="yyyy-MM-dd"/>
+				</td>
+				<td>${row.viewcnt}</td>
+			</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+	<c:if test="${member != null}">
+		<a href="writer_page.html" class="btn">글쓰기</a>
+	</c:if>
+</div>
+	<script>
+		$( document ).ready(function() {
+			$("#data").DataTable();
+		});
+	</script>
+</body>
+</html>
