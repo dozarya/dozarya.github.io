@@ -64,11 +64,13 @@ a { text-decoration: none; }
     position:relative; 
     background-color: #fff;
     overflow: hidden;
+    height: 360px;
+    margin-left: 66px;
  }
 .ft_wrap { 
     width: 1200px; 
     height: 160px;
-    margin:30px auto;
+    margin:140px auto;
     top: 20px;  
     position:relative;
 }

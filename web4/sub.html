@@ -40,7 +40,7 @@
 
 <style>
 
-    .leftbar { width: 190px; float: left; background-color: #f0f0f0; margin-top: 190px; margin-left: 200px; }
+    .leftbar { width: 190px; float: left; background-color: #f0f0f0; margin-top: 72px; margin-left: 200px; }
     .lnb { clear: both; }
     .lnb li { clear: both; margin: 5px 6px; border: 1px solid #aaa; line-height: 52px; }
     .lnb li a { color:#222; font-size: 14px; padding-left: 1em; }
@@ -51,6 +51,8 @@
     .link1 { float: left; padding-right: 40px; padding-top: 14px; }
     .link1 a { color:#000; }
     .link2 { float: right; }
+    .page { display:none; min-height: 60vh; }
+    .page:target { display:block; margin-bottom: 112px; }
     
 </style>
 
@@ -444,55 +446,82 @@
             </nav>
         </div>
     </header>
+<script>
+    $(document).ready(function(){
+        $(".lnb ul li").click(function(){
+            $(".lnb ul li").removeClass("act");
+            $(this).addClass("act");
+        });
+        $(".sub > li").click(function(){
+            $(".lnb ul li").removeClass("act");
+            var t = $(this).index();
+            $(".lnb ul li").eq(t).addClass("act");
+        });
+    });    
+</script>
     <div>
         <aside class="leftbar">
             <nav class="lnb">
                 <ul>
-                    <li><a href="">전자민원</a></li>
-                    <li><a href="">서식민원</a></li>
-                    <li><a href="">빠른 인터넷 상담</a></li>
-                    <li><a href="">질의민원</a></li>
-                    <li><a href="">우편&FAX민원</a></li>
-                    <li><a href="">1350전화상담</a></li>
+                    <li><a href="#page1">전자민원</a></li>
+                    <li><a href="#page2">서식민원</a></li>
+                    <li><a href="#page3">빠른 인터넷 상담</a></li>
+                    <li><a href="#page4">질의민원</a></li>
+                    <li><a href="#page5">우편&FAX민원</a></li>
                 </ul>
             </nav>
         </aside>
         <div class="page_box">
-            <section class="subpage">
+            <section class="page" id="page1">
                 <h2 class=""></h2>
-                <img src="./img/sub1.png" alt="서브이미지1" style="margin-top: 180px;">
-                <img src="./img/sub2.png" alt="서브이미지2" style="margin-left: 418px;">
+                <img src="./img/sub1.png" alt="서브이미지1" style="margin:40px 80px;">
+            </section>
+            <section class="page" id="page2">
+                <h2 class=""></h2>
+                <img src="./img/sub2.png" alt="서브이미지2" style="margin:40px 80px;">
+            </section>
+            <section class="page" id="page3">
+                <h2 class=""></h2>
+                <img src="./img/sub3.png" alt="서브이미지3" style="margin:40px 80px;">
+            </section>
+            <section class="page" id="page4">
+                <h2 class=""></h2>
+                <img src="./img/sub4.png" alt="서브이미지4" style="margin:40px 80px;">
+            </section>
+            <section class="page" id="page5">
+                <h2 class=""></h2>
+                <img src="./img/sub5.png" alt="서브이미지5" style="margin:40px 80px;">
             </section>
         </div>
     </div>
-    <div class="mit">
-        <figure>
-            <ul class="sns">
-                <li><a href=""><img src="./img/facebook.png" alt=""></a></li>
-                <li><a href=""><img src="./img/instar.png" alt=""></a></li>
-                <li><a href=""><img src="./img/utube.png" alt=""></a></li>
-                <li><a href=""><img src="./img/naverTv.png" alt=""></a></li>
-            </ul>
-            <div class="linkwrap">
-                <div class="link1">
-                    <a href="">소속기관(지청&위원회)</a>
-                </div>
-                <div class="link2">
-                    <div class="sitenav">
-                        <select id="jumpsite" title="관련 사이트" style="width: 200px; height: 50px; font-size: 15px; text-align: center;" >
-                        <option value="">서울지방고용노동청</option>
-                        <option value="">서울강남지청</option>
-                        <option value="">서울동부지청</option>
-                        <option value="">서울서부지청</option>
-                        <option value="">서울남부지청</option>
-                        <option value="">서울북부지청</option>
-                        </select>
+    <footer class="ft">
+        <div class="mit">
+            <figure>
+                <ul class="sns">
+                    <li><a href=""><img src="./img/facebook.png" alt=""></a></li>
+                    <li><a href=""><img src="./img/instar.png" alt=""></a></li>
+                    <li><a href=""><img src="./img/utube.png" alt=""></a></li>
+                    <li><a href=""><img src="./img/naverTv.png" alt=""></a></li>
+                </ul>
+                <div class="linkwrap">
+                    <div class="link1">
+                        <a href="">소속기관(지청&위원회)</a>
+                    </div>
+                    <div class="link2">
+                        <div class="sitenav">
+                            <select id="jumpsite" title="관련 사이트" style="width: 200px; height: 50px; font-size: 15px; text-align: center;" >
+                            <option value="">서울지방고용노동청</option>
+                            <option value="">서울강남지청</option>
+                            <option value="">서울동부지청</option>
+                            <option value="">서울서부지청</option>
+                            <option value="">서울남부지청</option>
+                            <option value="">서울북부지청</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </figure>
-    </div> 
-    <footer class="ft">
+            </figure>
+        </div> 
         <div class="ft_wrap">
             <div class="f_logo">
                 <img src="./img/logo.png" alt="로고이미지">
