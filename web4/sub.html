@@ -40,7 +40,25 @@
 
 <style>
 
-    .leftbar { width: 190px; float: left; background-color: #f0f0f0; margin-top: 72px; margin-left: 200px; }
+    .sub_tit { height: 144px; line-height: 144px; font-size: 22px; margin-bottom: 4px; 
+        background-color: #adaccb; text-align: center; width: 190px; float: left; color: #fff; margin-left:336px; margin-top: 138px; z-index: 10; }
+    .bread_box { height: 120px; background-color: #fff; width: 980px; float: left; margin-left: 20px;
+        padding-top: 44px; border-bottom: 1px solid #999; position: relative; margin-top: 116px; }
+    .cate_tit { color: #999; font-size: 24px; }
+    .bread { padding-top: 24px; line-height: 1.6; font-size: 16px; }
+    .bread a { color: #999; padding: 10px; }
+    .bread span .cur { color: #222; font-weight: 600; }
+    .sub_tit_ico_box { position:absolute; right: 30px; bottom: 14px; }
+    .sub_tit_ico_box li { float: left; margin-left: 10px; }
+    .sub_tit_ico_box li a { display: block; color: #fff; }
+    .sub_tit_ico_box li a.ico { width: 34px; height: 34px; background-position: center center; 
+        background-repeat: no-repeat; border-radius: 18px; border: 1px solid #ccc; }
+    .sub_tit_ico_box li a.ico.item1 { background-image: url(); }
+    .sub_tit_ico_box .btn { border-radius: 18px; padding: 10px 12px; width: auto; 
+        background-color: #999; font-size: 14px; }
+
+
+    .leftbar { clear: both;float:left; width: 190px; background-color: #f0f0f0; margin-left: 336px; padding-top: 24px; }
     .lnb { clear: both; }
     .lnb li { clear: both; margin: 5px 6px; border: 1px solid #aaa; line-height: 52px; }
     .lnb li a { color:#222; font-size: 14px; padding-left: 1em; }
@@ -51,8 +69,7 @@
     .link1 { float: left; padding-right: 40px; padding-top: 14px; }
     .link1 a { color:#000; }
     .link2 { float: right; }
-    .pageone { display: block; margin:0 auto; }
-    .logo2 { display: block; margin: 0 auto; width: 300px; float: none; padding-top: 100px; padding-right: 366px; }
+    .logo2 { clear: both; width: 380px; margin-left: 288px; margin-top: 120px; }
     .page { display:none; min-height: 30vh; padding-top: 90px; }
     .page:target { display:block; margin-bottom: 112px; }
     
@@ -462,6 +479,21 @@
     });    
 </script>
     <div>
+        <div class="content_wrap">
+            <div class="sub_box">
+                <h2 class="sub_tit">민원안내</h2>
+                <div class="bread_box">
+                    <h3 class="cate_tit"></h3>
+                    <p class="bread"><a href="">홈</a><a href="">> 민원 ></a>
+                        <span class="cur">이용안내</span></p>
+                        <ul class="sub_tit_ico_box">
+                            <li><a href="" class="ico item1"></a></li>
+                            <li><a href="" class="ico item2"></a></li>
+                            <li><a href="" class="btn">정보수정요청</a></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
         <aside class="leftbar">
             <nav class="lnb">
                 <ul>
@@ -473,29 +505,29 @@
                 </ul>
             </nav>
         </aside>
-        <div class="pageone">
+        <div class="">
             <a href=""><img src="./img/logo2.png" alt="고용노동부민원마당" class="logo2"></a>
         </div>
         <div class="page_box">
             <section class="page" id="page1">
                 <h2 class=""></h2>
-                <img src="./img/sub1.png" alt="서브이미지1" style="margin:40px 80px;">
+                <img src="./img/sub1.png" alt="서브이미지1" style="margin:22px 22px;">
             </section>
             <section class="page" id="page2">
                 <h2 class=""></h2>
-                <img src="./img/sub2.png" alt="서브이미지2" style="margin:40px 80px;">
+                <img src="./img/sub2.png" alt="서브이미지2" style="margin:22px 22px;">
             </section>
             <section class="page" id="page3">
                 <h2 class=""></h2>
-                <img src="./img/sub3.png" alt="서브이미지3" style="margin:40px 80px;">
+                <img src="./img/sub3.png" alt="서브이미지3" style="margin:22px 22px;">
             </section>
             <section class="page" id="page4">
                 <h2 class=""></h2>
-                <img src="./img/sub4.png" alt="서브이미지4" style="margin:40px 80px;">
+                <img src="./img/sub4.png" alt="서브이미지4" style="margin:22px 22px;">
             </section>
             <section class="page" id="page5">
                 <h2 class=""></h2>
-                <img src="./img/sub5.png" alt="서브이미지5" style="margin:40px 80px;">
+                <img src="./img/sub5.png" alt="서브이미지5" style="margin:22px 22px;">
             </section>
         </div>
     </div>
