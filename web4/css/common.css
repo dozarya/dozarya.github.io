@@ -32,7 +32,7 @@ a { text-decoration: none; }
 
 .tnb li a { color: #000; display: block; padding: 10px 10px; } 
 
-.tnb li a:hover { color: green; } 
+.tnb li a:hover { color: rgb(0, 132, 255); text-decoration: underline; } 
 
 .tnb li.user_name { padding: 14px 20px; } 
 
