@@ -1,0 +1,519 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="subject" content="고용노동부">
+	<meta name="title" content="고용노동부">
+	<meta name="keywords" content="고용노동부">
+	<meta name="copyright" content="Copyright(c)Ministry of Employment and Labor. All rights reserved.">
+    
+	<title>내일을 위한 고용노동부 - 고용노동부가 밝은 미래를 열어드립니다</title>
+    <link rel="favicon" type="image/x-icon" href="./img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.png" />
+
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- 구글 애널리틱스 연결 -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-16PN3JQWNH"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-16PN3JQWNH');
+    </script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap">
+   
+    <link rel="stylesheet" href="./js/owl.carousel.css">
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/datatables.min.js"></script>
+	<link rel="stylesheet" href="./js/datatables.min.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+	<!-- 합쳐지고 최소화된 최신 CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<!-- 부가적인 테마 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+ 	
+ 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 	
+ 	<title>게시판</title>
+ <style>
+ 
+#container { clear:both; width:1200px; margin: 0 auto; }
+#regForm { width:520px; margin:50px auto; padding-top: 160px; }
+.loginplz { margin: 40px 0px; }
+.btn_group { padding-top: 18px; }
+</style>
+</head>
+<script type="text/javascript">
+		$(document).ready(function(){
+			var formObj = $("form[name='writeForm']");
+			$(".write_btn").on("click", function(){
+				if(fn_valiChk()){
+					return false;
+				}
+				formObj.attr("action", "/board/write");
+				formObj.attr("method", "post");
+				formObj.submit();
+			});
+			fn_addFile();
+		})
+		function fn_valiChk(){
+			var regForm = $("form[name='writeForm'] .chk").length;
+			for(var i = 0; i<regForm; i++){
+				if($(".chk").eq(i).val() == "" || $(".chk").eq(i).val() == null){
+					alert($(".chk").eq(i).attr("title"));
+					return true;
+				}
+			}
+		}
+		function fn_addFile(){
+			var fileIndex = 1;
+			//$("#fileIndex").append("<div><input type='file' style='float:left;' name='file_"+(fileIndex++)+"'>"+"<button type='button' style='float:right;' id='fileAddBtn'>"+"추가"+"</button></div>");
+			$(".fileAdd_btn").on("click", function(){
+				$("#fileIndex").append("<div><input type='file' style='float:left;' name='file_"+(fileIndex++)+"'>"+"</button>"+"<button type='button' style='float:right;' id='fileDelBtn'>"+"삭제"+"</button></div>");
+			});
+			$(document).on("click","#fileDelBtn", function(){
+				$(this).parent().remove();
+				
+			});
+		}
+</script>
+<body>
+    <header class="hd">
+        <div class="hd_wrap">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./img/logo.png" alt="고용노동부 로고">
+                </a>
+            </div>
+            <nav class="tnb">
+                <div class="search_wrap">
+                    <form action="" method="">
+                        <div class="search_fr">
+                            <input type="text" id="keyword" name="keyword" class="search_box">
+                            <input type="submit" class="search_btn" value="검색">
+                        </div>
+                    </form>
+                </div> 
+                <div class="tnb_rt">
+                    <ul>
+                        <li><a href="login.html">로그인</a></li>
+                        <li><a href="register.html">회원가입</a></li>
+                        <li><a href="board.html">게시판</a></li>
+                        <li><a href="writeBoard.html">글쓰기</a></li>
+                        <li><a href="mypage.html">마이페이지</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <nav class="gnb">
+                <ul>
+                    <li>
+                        <a href="">민원</a>
+                            <ul class="sub">
+                                <li>
+                                    <a href="sub.html">이용안내</a>
+                                    <dl>
+                                        <dd><a href="">민원정보</a></dd>
+                                        <dd><a href="">민원신청</a></dd>
+                                        <dd><a href="">민원확인</a></dd>
+                                        <dd><a href="">회원서비스</a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">민원신청</a>
+                                    <dl>
+                                        <dd><a href="">서식민원</a></dd>
+                                        <dd><a href="">질의민원</a></dd>
+                                        <dd><a href="">신고센터</a></dd>
+                                        <dd><a href="">빠른인터넷상담</a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">신고센터</a>
+                                    <dl>
+                                        <dd><a href="">서식민원</a></dd>
+                                        <dd><a href="">질의민원</a></dd>
+                                        <dd><a href="">신고센터</a></dd>
+                                        <dd><a href="">빠른인터넷상담</a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">나의민원</a>
+                                    <dl>
+                                        <dd><a href="">로그인</a></dd>
+                                        <dd><a href="">회원가입</a></dd>
+                                        <dd><a href="">회원정보변경</a></dd>
+                                        <dd><a href="">공인인증서등록</a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">지방청/고용센터찾기</a>
+                                    <dl>
+                                        <dd><a href="">분야별민원</a></dd>
+                                        <dd><a href="">대상자별민원</a></dd>
+                                        <dd><a href="">기업보고서식</a></dd>
+                                        <dd><a href="">자주하는질문</a></dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">국민참여
+                            <ul class="sub">
+                                <li>
+                                    <a href="">규제개혁</a>
+                                    <dl>
+                                        <dd><a href="">규제혁파과제</a></dd>
+                                        <dd><a href="">규제개혁성과</a></dd>
+                                        <dd><a href="">규제개혁개안</a></dd>
+                                        <dd><a href="">규제입증요청</a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">정책참여</a>
+                                    <dl>
+                                        <dd><a href="">정책포럼</a></dd>
+                                        <dd><a href="">설문조사</a></dd>
+                                        <dd><a href="">국민제안신청</a></dd>
+                                        <dd><a href="">나의제안보기</a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">칭찬합시다</a>
+                                    <dl>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">안전신문고</a>
+                                    <dl>
+                                        <dd><a href="">안전신문고 소개</a></dd>
+                                        <dd><a href="">안전신고</a></dd>
+                                        <dd><a href="">신고내역조회</a></dd>
+                                        <dd><a href="">주요처리사례</a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">크리에이터 협업</a>
+                                    <dl>
+                                        <dd><a href="">최신정보</a></dd>
+                                        <dd><a href="">뉴스레터</a></dd>
+                                        <dd><a href="">보도자료</a></dd>
+                                        <dd><a href="">콘텐츠 제작지원</a></dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">뉴스&소식
+                            <ul class="sub">
+                                <li>
+                                    <a href="">보도자료</a>
+                                    <dl>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">언론보도설명</a>
+                                    <dl>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">공지사항</a>
+                                    <dl>
+                                        <dd><a href="">공고</a></dd>
+                                        <dd><a href="">행사</a></dd>
+                                        <dd><a href="">입찰</a></dd>
+                                        <dd><a href="">인사</a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">코로나19대응</a>
+                                    <dl>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">홍보자료</a>
+                                    <dl>
+                                        <dd><a href="">홍보동영상</a></dd>
+                                        <dd><a href="">카드뉴스</a></dd>
+                                        <dd><a href="">월간내일</a></dd>
+                                        <dd><a href="">뉴스레터</a></dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">정보공개
+                            <ul class="sub">
+                                <li>
+                                    <a href="">행정정보공개</a>
+                                    <dl>
+                                        <dd><a href="">정보공개안내</a></dd>
+                                        <dd><a href="">정보목록</a></dd>
+                                        <dd><a href="">업무추진비공개</a></dd>
+                                        <dd><a href="">공무국외출장</a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">정책실명제</a>
+                                    <dl>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">청렴정책공개</a>
+                                    <dl>
+                                        <dd><a href="">반부패청렴자료</a></dd>
+                                        <dd><a href="">청탁금지법 상담 및 조치</a></dd>
+                                        <dd><a href="">감사결과</a></dd>
+                                        <dd><a href="">부패행위현황</a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">공공데이터개방</a>
+                                    <dl>
+                                        <dd><a href="">공공데이터 포털</a></dd>
+                                        <dd><a href="">행정해석</a></dd>
+                                        <dd><a href="">주요발간자료</a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">법령정보</a>
+                                    <dl>
+                                        <dd><a href="">현행법령</a></dd>
+                                        <dd><a href="">최근제/개정법령</a></dd>
+                                        <dd><a href="">입법/행정예고</a></dd>
+                                        <dd><a href="">훈령/예규</a></dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">정책자료
+                            <ul class="sub">
+                                <li>
+                                    <a href="">국정과제</a>
+                                    <dl>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">정책추진방향</a>
+                                    <dl>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">대상자별 정책</a>
+                                    <dl>
+                                        <dd><a href="">청년</a></dd>
+                                        <dd><a href="">여성</a></dd>
+                                        <dd><a href="">중장년</a></dd>
+                                        <dd><a href="">장애인</a></dd>
+                                        <dd><a href="">외국인</a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">분야별정책</a>
+                                    <dl>
+                                        <dd><a href="">취업지원</a></dd>
+                                        <dd><a href="">일자리창출</a></dd>
+                                        <dd><a href="">고용안전망</a></dd>
+                                        <dd><a href="">직업능력개발</a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">업무보고</a>
+                                    <dl>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">기관소개
+                            <ul class="sub">
+                                <li>
+                                    <a href="">고용노동부는</a>
+                                    <dl>
+                                        <dd><a href="">상징 및 비전</a></dd>
+                                        <dd><a href="">연혁</a></dd>
+                                        <dd><a href="">예산</a></dd>
+                                        <dd><a href="">기금</a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">장관소개</a>
+                                    <dl>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">차관소개</a>
+                                    <dl>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">조직안내</a>
+                                    <dl>
+                                        <dd><a href="">본부</a></dd>
+                                        <dd><a href="">소속기관</a></dd>
+                                        <dd><a href="">직원검색</a></dd>
+                                        <dd><a href="">산하기관</a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">찾아오시는길</a>
+                                    <dl>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">이용안내
+                            <ul class="sub">
+                                <li>
+                                    <a href="">홈페이지배너모음</a>
+                                    <dl>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">RSS 서비스</a>
+                                    <dl>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">사이트맵</a>
+                                    <dl>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">개인정보처리방침</a>
+                                    <dl>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <a href="">저작권정책</a>
+                                    <dl>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                        <dd><a href=""></a></dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+		<section id="container">
+			<form name="writeForm" method="post" action="/board/write" enctype="multipart/form-data" id="regForm">
+			<h2 class="title">게시판 글 작성</h2>
+				<table class="form_group has-feedback">
+					<tbody>
+						<c:if test="${member.userId != null}">
+							<tr>
+								<td>
+									<label for="title" class="control-label">제목</label>
+									<input type="text" id="title" name="title" class="form-control"  title="제목을 입력하세요."/>
+								</td>
+							</tr>	
+							<tr>
+								<td>
+									<label for="content" class="control-label">내용</label>
+									<textarea id="content" name="content" class="form-control" cols="80" rows="10" title="내용을 입력하세요."></textarea>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="writer" class="control-label">작성자</label>
+									<input type="text" id="writer" name="writer" class="form-control" title="작성자를 입력하세요." value="${member.userId}" />
+								</td>
+							</tr>
+							<tr>
+							<tr>
+								<td id="fileIndex">
+								</td>
+							</tr>
+							<tr>
+								<td class="btn_group">						
+									<button class="btn btn-success" type="submit">작성</button>	
+									<button class="btn btn-danger" type="button">파일추가</button>	
+								</td>
+							</tr>	
+						</c:if>
+						<c:if test="${member.userId == null}">
+							<p class="loginplz">로그인 후에 작성하실 수 있습니다.</p>
+						</c:if>
+					</tbody>			
+				</table>
+			</form>
+		</section>
+		</div>
+	</body>
+</html>

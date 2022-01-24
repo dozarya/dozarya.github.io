@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<meta name="subject" content="고용노동부">
@@ -14,7 +13,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.png" />
 
     <script src="https://code.jquery.com/jquery-latest.js"></script>
-    
     <!-- 구글 애널리틱스 연결 -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-16PN3JQWNH"></script>
@@ -27,96 +25,80 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap">
    
-    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="./js/owl.carousel.css">
     <script src="./js/owl.carousel.js"></script>
-
+    <script src="./js/datatables.min.js"></script>
+	<link rel="stylesheet" href="./js/datatables.min.css">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/common.css">
+	<!-- 합쳐지고 최소화된 최신 CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<!-- 부가적인 테마 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+ 	
+ 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<title>마이페이지</title>
 
 <style>
-    .content { clear: both; width: 100%; }
-    /* 올빼미 */
-    
-    #owl-one .owl-prev { display: none; }
-    #owl-one .owl-next { display: none; }
-    #owl-one .owl-dots { position:absolute; bottom:80px; width: 160px; height:30px; 
-    z-index:11; left: 50%; margin-left: -80px; }
-    #owl-one .owl-dots div { display:block; width: 20px; height: 20px; float:left; background-color: #fff; border-radius:12px; margin: 10px; }
-    #owl-one .owl-dots div.active { background:rgb(116, 103, 231); }
 
-    #owl-two .owl-prev { display: none; }
-    #owl-two .owl-next { display: none; }
-    /* #owl-two .owl-dots div { display:block; width: 20px; float:left; background-color: rgb(0, 0, 0); border-radius:12px; margin: 10px; }
-    #owl-two .owl-dots div.active { background:rgb(116, 103, 231); } */
+#container { clear:both; }
+.content { clear:both; width:1200px; margin: 0 auto; padding-top:100px; }
+.log_wrap { clear:both; }
+.has-feedback .form-control { margin-top:10px; }
+.title { margin-bottom: 20px; }
+#regForm { width:700px; margin:50px auto; padding-top: 80px; }
 
-    .icon { clear: both; width: 1200px; display: block; margin: 0 auto; }
-    .icon_list { width: 1200px; display: block; float: left; margin: 0 auto; }
-    .ic { clear: both; display: block; float: left; margin-left: 120px; margin-top: 80px; }
-    .icon_wrap { display: block; float: left; margin: 0 auto; padding-left: 70px; text-align: center; }
+/* .content { clear:both; width:1200px; margin: 0 auto; }
+h2 { text-align: center; padding-top: 200px; }
+.regForm { width:450px; display:block; margin:30px auto; padding-left: 126px; }
+.form-control { line-height: 32px; margin: 10px; width: 320px; } */
 
-    .vs2 { clear: both; width: 1900px; overflow-x: hidden; position: relative; margin: 0 auto; padding-top: 50px; }
-    .card_wrap { clear: both; width: 1200px; margin: 0 auto; }
-    .card { float: left; }
-
-    .main_color1 { background-color: #1d4bb0;}
-    .main_color2 { background-color: #ef4c84;}
-    .base_color1 { background-color: #fff; }
-    .base_color2 { background-color: #202020; }
-
-    .contact_box { clear: both; }
-    .contact_wrap { width:1200px; margin:30px auto; height: 600px; }
-    .noti_box { width: 400px; float:left; }
-    .ra_item { display:none; }
-    .noti_wrap { clear:both; }
-    .noti_wrap .noti { display:none; width: 400px; height: 450px; margin-left: -18px; }
-    #ra1:checked ~ .noti_wrap .noti.item1 { display:block; border: 1px solid #333; }
-    #ra2:checked ~ .noti_wrap .noti.item2 { display:block; border: 1px solid #333; }
-    .noti_lb_box { clear:both; height: 48px; text-align: center; }
-    .noti_lb_box li { float:left; width: 100px; text-align: center; height: 48px; line-height: 48px;
-     cursor: pointer; }
-    .noti_lb_box li.more_item { float:right; }
-    .noti_lb_box li label { color:#000; font-weight: normal;}
-    #ra1:checked ~ .noti_lb_box li.item1 label { color:red; font-weight:bold; }
-    #ra2:checked ~ .noti_lb_box li.item2 label { color:red; font-weight:bold; }
-    .noti_con ul li { text-align: center; margin-top: 50px; }
-    .news_con ul li { text-align: center; margin-top: 50px; }
-
-    .noti_con a { color:#000; }
-    .noti_con a:hover { color:rgb(255, 0, 0); text-decoration: underline; }
-    .news_con a { color:#000; }
-    .news_con a:hover { color:rgb(255, 0, 0); text-decoration: underline; }
-    .news_box { width: 400px; float:left; }
-    .news_wrap { clear:both; }
-    .news_wrap .news { display:none; width: 400px; height: 450px; }
-    #ra3:checked ~ .news_wrap .news.item1 { display:block; border: 1px solid #333; }
-    #ra4:checked ~ .news_wrap .news.item2 { display:block; border: 1px solid #333; }
-    .news_lb_box { clear:both; height: 48px; }
-    .news_lb_box li { float:left; width: 100px; text-align: center; height: 48px; line-height: 48px;
-     cursor: pointer; }
-    .news_lb_box li.more_item { float:right; }
-    .news_lb_box li label { color:#000; font-weight: normal;}
-    #ra3:checked ~ .news_lb_box li.item1 label { color:red; font-weight:bold; }
-    #ra4:checked ~ .news_lb_box li.item2 label { color:red; font-weight:bold; }
-
-    .tel_box { width: 380px; height: 450px; float:right; background-color: rgb(214, 214, 214); margin-top: 48px; }
-    .tel_tit { display: block; width: 300px; margin: 10px auto; border: 0.5px solid rgb(128, 128, 128);
-    text-align: center; margin-top: 80px; }
-    .tel_tit li { margin: 20px; }
-    .tel_tit li a { color: #000; }
-    .tel_tit li a:hover { color: #ff0000; }
-    .tel_tit2 { display: block; width: 300px; margin: 10px auto; text-align: center; margin-top: 80px; }
-
-    .sns { display: block; float: left; margin-left: 250px; }
-    .sns li { float: left; margin: 14px; }
-    .linkwrap { float: right; margin-right: 400px; }
-    .link1 { float: left; padding-right: 40px; padding-top: 14px; }
-    .link1 a { color:#000; }
-    .link2 { float: right; }
 </style>
 </head>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// 취소
+		$(".cencle").on("click", function() {
+
+			location.href = "/";
+
+		})
+
+		$("#submit").on("click", function() {
+			if ($("#userPass").val() == "") {
+				alert("비밀번호를 입력해주세요.");
+				$("#userPass").focus();
+				return false;
+			}
+			if ($("#userName").val() == "") {
+				alert("성명을 입력해주세요.");
+				$("#userName").focus();
+				return false;
+			}
+			$.ajax({
+				url : "/member/passChk",
+				type : "POST",
+				dateType : "json",
+				data : $("#updateForm").serializeArray(),
+				success : function(data) {
+
+					if (data == true) {
+						if (confirm("회원수정하시겠습니까?")) {
+							$("#updateForm").submit();
+						}
+
+					} else {
+						alert("패스워드가 틀렸습니다.");
+						return;
+
+					}
+				}
+			})
+		});
+	})
+</script>
 <body>
-    <div class="container">
+	<section id="container">
         <header class="hd">
             <div class="hd_wrap">
                 <div class="logo">
@@ -506,285 +488,28 @@
                 </nav>
             </div>
         </header>
-        <section class="content">
-            <figure class="vs" id="vs">
-                <ul class="owl-carousel" id="owl-one">
-                    <li>
-                        <a href="">
-                            <img src="./img/vs1.jpg" alt="" class="vs_img">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/vs2.jpg" alt="" class="vs_img">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/vs3.jpg" alt="" class="vs_img">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/vs4.jpg" alt="" class="vs_img">
-                        </a>
-                    </li>
-                </ul>
-            </figure>
-            <script>
-                $(function(){
-                    $("#owl-one").owlCarousel({
-                        autoplay:true,  //자동 실행
-                        loop:true,   //순환 반복
-                        margin: 0,   //아이템간 여백
-                        nav:true,    //제어바
-                        dots:true,  //번호별 버튼 추가
-                    });
-                });    
-            </script>
-            <figure class="icon">
-                <div class="icon_list">
-                    <div class="ic">
-                        <div class="icon_wrap">
-                            <a href="">
-                                <img src="./img/icon1.png" alt="">
-                                <p>민원신청</p>
-                            </a>
-                        </div>
-                        <div class="icon_wrap">
-                            <a href="">
-                                <img src="./img/icon2.png" alt="">
-                                <p>빠른인터넷상담</p>
-                            </a>
-                        </div>
-                        <div class="icon_wrap">
-                            <a href="">
-                                <img src="./img/icon3.png" alt="">
-                                <p>신고센터</p>
-                            </a>
-                        </div>    
-                        <div class="icon_wrap">
-                            <a href="">
-                                <img src="./img/icon4.png" alt="">
-                                <p>자주찾는자료실</p>
-                            </a>
-                        </div> 
-                        <div class="icon_wrap">
-                            <a href="">
-                                <img src="./img/icon5.png" alt="">
-                                <p>정책자료실</p>
-                            </a>
-                        </div>
-                        <div class="icon_wrap">
-                            <a href="">
-                                <img src="./img/icon6.png" alt="">
-                                <p>사전정보<br>공표목록</p>
-                            </a>
-                        </div>
-                    </div>
-                </div> 
-            </figure>
-            <figure class="vs2">
-                <div class="card_wrap">
-                    <ul class="owl-carousel" id="owl-two">
-                        <li class="card">
-                            <a href=""><img src="./img/main1.png" alt=""></a>
-                        </li>
-                        <li class="card">
-                            <a href=""><img src="./img/main2.png" alt=""></a>
-                        </li>
-                        <li class="card">
-                            <a href=""><img src="./img/main3.png" alt=""></a>
-                        </li>
-                        <li class="card">
-                            <a href=""><img src="./img/main4.jpg" alt=""></a>
-                        </li>
-                        <li class="card">
-                            <a href=""><img src="./img/main5.png" alt=""></a>
-                        </li>
-                        <li class="card">
-                            <a href=""><img src="./img/main6.png" alt=""></a>
-                        </li>
-                        <li class="card">
-                            <a href=""><img src="./img/main7.png" alt=""></a>
-                        </li>
-                        <li class="card">
-                            <a href=""><img src="./img/main8.png" alt=""></a>
-                        </li>
-                        <li class="card">
-                            <a href=""><img src="./img/main9.jpg" alt=""></a>
-                        </li>
-                        <li class="card">
-                            <a href=""><img src="./img/main10.jpg" alt=""></a>
-                        </li>
-                    </ul>
-                </div>
-            </figure>
-            <script>
-                $(function(){
-                    $("#owl-two").owlCarousel({
-                        autoplay:true,  //자동 실행
-                        loop:true,   //순환 반복
-                        margin: 30,   //아이템간 여백
-                        nav:true,    //제어바
-                        items:5,
-                        dots:true,
-                    });
-                });    
-            </script>
-            <figure class="arti">
-                <div class="art1">
-
-                </div>
-                <div class="art2">
-
-                </div>
-                <div class="art3">
-                    <a href=""><img src="" alt=""></a>
-                </div>
-            </figure>
-            <figure>
-                <div class="contact_box">
-                    <div class="contact_wrap">
-                        <div class="noti_box">
-                            <input type="radio" name="ra1" class="ra_item" id="ra1" checked>
-                            <input type="radio" name="ra1" class="ra_item" id="ra2">
-                            <ul class="noti_lb_box">
-                                <li class="item1"><label for="ra1">공지사항</label></li>
-                                <li class="item2"><label for="ra2">훈령/고시</label></li>
-                                <li class="more_item"><a href="">더보기</a></li>
-                            </ul>
-                            <ul class="noti_wrap">
-                                <li class="item1 noti">
-                                    <div class="noti_con">
-                                        <ul>
-                                            <li><a href="">2022년 고용노동행정 고객만족도 조사 용역 입찰 공고</a></li>
-                                            <li><a href="">비영리 범인 설립허가 취소처분 사전통지 ...</a></li>
-                                            <li><a href="">2022년 남녀고용평등 유공자 및 우수 기업...</a></li>
-                                            <li><a href="">2022년 국민취업지원제도 일경험프로그램...</a></li>
-                                            <li><a href="">고용노동부 고객 상담센터 책임전화 상담...</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="item2 noti">
-                                    <div class="noti_con">
-                                        <ul>
-                                            <li><a href="">사업주 및 장애인 등에 대한 융자 지원...</a></li>
-                                            <li><a href="">장애인 취업지원 업무처리 규정 일부개정고시</a></li>
-                                            <li><a href="">노무제공자의 기준보수 및 보수액에서 제외하는...</a></li>
-                                            <li><a href="">대한민국 명장의 직종 고시</a></li>
-                                            <li><a href="">안전/보건에 관한 업무 수행시간의 기준고시</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>   
-                        </div>
-                        <div class="news_box">
-                            <input type="radio" name="ra2" class="ra_item" id="ra3" checked>
-                            <input type="radio" name="ra2" class="ra_item" id="ra4">
-                            <ul class="news_lb_box">
-                                <li class="item1"><label for="ra3">보도자료</label></li>
-                                <li class="item2"><label for="ra4">해명 및 설명</label></li>
-                                <li class="more_item"><a href="">더보기</a></li>
-                            </ul>
-                            <ul class="news_wrap">
-                                <li class="item1 news">
-                                    <div class="news_con">
-                                        <ul>
-                                            <li><a href="">한국산업인력공단, 청년 해외진출 수기집 발간</a></li>
-                                            <li><a href="">근로복지공단, 안심 보육 환경조성을 위한...</a></li>
-                                            <li><a href="">건설현장 채용 관련 불법행위를 근절시켜...</a></li>
-                                            <li><a href="">청년과 기업이 함께 도약하는"청년 일자리..."</a></li>
-                                            <li><a href="">고용부, 소방청 합동 이상화탄소 소화설비...</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="item2 news">
-                                    <div class="news_con">
-                                        <ul>
-                                            <li><a href="">매일경제(1.13)등, 30대 일자리 10만개 줄었는데...</a></li>
-                                            <li><a href="">세계일보, "삽 뜨고 한 달 지나 위험방지계획서..."</a></li>
-                                            <li><a href="">동아일보, "중소제조기업54% 중대재해법 준수 불가능..."</a></li>
-                                            <li><a href="">경향신문, "문 대통령 일자리 창출은 기업 몫..."</a></li>
-                                            <li><a href="">한국경제, "고용부 직장내 괴롭힘에 극단 선택..."</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>   
-                        </div>
-                        <div class="tel_box">
-                            <ul class="tel_tit">
-                                <li><a href=""><img src="./img/ping.png" alt="">&nbsp;&nbsp;찾아오시는 길</a></li>
-                                <li><a href=""><img src="./img/tel.png" alt="">&nbsp;&nbsp;담당자 연락처</a></li>
-                                <li><a href=""><img src="./img/com.png" alt="">&nbsp;&nbsp;사업자등록증 & 계좌안내</a></li>
-                            </ul>
-                            <ul class="tel_tit2">
-                                <li><img src="./img/phone.png" alt=""></li>
-                                <li><a href="" style="font-weight: bolder;">대표전화 - 1350</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </figure>
-        </section>
-        <footer class="ft">
-            <div class="mit">
-                <figure>
-                    <ul class="sns">
-                        <li><a href=""><img src="./img/facebook.png" alt=""></a></li>
-                        <li><a href=""><img src="./img/instar.png" alt=""></a></li>
-                        <li><a href=""><img src="./img/utube.png" alt=""></a></li>
-                        <li><a href=""><img src="./img/naverTv.png" alt=""></a></li>
-                    </ul>
-                    <div class="linkwrap">
-                        <div class="link1">
-                            <a href="">소속기관(지청&위원회)</a>
-                        </div>
-                        <div class="link2">
-                            <div class="sitenav">
-                                <select id="jumpsite" title="관련 사이트" style="width: 200px; height: 50px; font-size: 15px; text-align: center;" >
-                                <option value="">서울지방고용노동청</option>
-                                <option value="">서울강남지청</option>
-                                <option value="">서울동부지청</option>
-                                <option value="">서울서부지청</option>
-                                <option value="">서울남부지청</option>
-                                <option value="">서울북부지청</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </figure>
-            </div> 
-            <div class="ft_wrap">
-                <div class="f_logo">
-                    <img src="./img/logo.png" alt="로고이미지">
-                </div>
-                <div class="linkbar">
-                    <nav class="linkbar_nav">
-                        <ul>
-                            <li><a href="">개인정보처리방침</a></li>
-                            <li><a href="">찾아오시는 길</a></li>
-                            <li><a href="">뷰어프로그램</a></li>
-                            <li><a href="">홈페이지 의견접수</a></li>
-                            <li><a href="">담당부서연락처</a></li>
-                        </ul>
-    
-                    </nav>
-                    <div class="copyright">
-                        <p class="add">(우)30117 세종특별자치시 한누리대로 422 정부세종청사 11동 고용노동부</p>
-                        <p class="copy">Copyright(c)Ministry of Employment and Labor. All rights reserved.</p>
-                    </div>
-                </div>
-                <div class="wa">
-                    <ul>
-                        <li>
-                            <img src="./img/wa_mark.png" alt="WA인증로고">
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </footer>
-    
-    </div>
+		<div class="content">
+			<h2 class="title">회원정보수정</h2>
+			<form id="updateForm" action="/member/memberUpdate" method="post" id="regForm">
+				<div class="form-group has-feedback">
+					<label class="control-label" for="userId">아이디</label>
+					<input class="form-control" type="text" id="userId" name="userId" value="${member.userId}" readonly="readonly" />
+				</div>
+				<div class="form-group has-feedback">
+					<label class="control-label" for="userPass">패스워드</label>
+					<input class="form-control" type="password" id="userPass" name="userPass" />
+				</div>
+				<div class="form-group has-feedback">
+					<label class="control-label" for="userName">성명</label>
+					<input class="form-control" type="text" id="userName" name="userName" value="${member.userName}" />
+				</div>
+				<div class="form-group has-feedback">
+					<button class="btn btn-success" type="button" id="submit">회원정보수정</button>
+					<button class="cencle btn btn-danger" type="button">취소</button>
+					<a href="/member/memberDeleteView" class=" btn btn-success">회원탈퇴</a>
+				</div>
+			</form>
+		</div>
+	</section>
 </body>
 </html>
