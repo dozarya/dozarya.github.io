@@ -1,5 +1,5 @@
 <html>
-<head>
+	<head>
     <meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
@@ -31,106 +31,38 @@
 	<link rel="stylesheet" href="./js/datatables.min.css">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/common.css">
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<title>회원가입</title>
-<style>
+		<!-- 합쳐지고 최소화된 최신 CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<!-- 부가적인 테마 -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	 	
+	 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	 	
+	 	<title>게시판</title>
 
-#container { clear:both; }
-.content { clear:both; }
-.log_wrap { clear:both; }
-.has-feedback .form-control { margin-top:10px; }
-.title { margin-bottom: 20px; }
-#regForm { width:700px; margin:50px auto; padding-top: 80px; }
-
-/* .content { clear:both; width:1200px; margin: 0 auto; }
-h2 { text-align: center; padding-top: 200px; }
-.regForm { width:450px; display:block; margin:30px auto; padding-left: 46px; }
-.form-control { line-height: 32px; margin: 10px; width: 320px; padding-left: 14px; } */
-
-</style>
-</head>
-<script type="text/javascript">
-	$(document).ready(function() {
-		// 취소
-		$(".cencle").on("click", function() {
-			location.href = "/";
+	</head>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var formObj = $("form[name='updateForm']");
+			
+			$(".cancel_btn").on("click", function(){
+				location.href = "/board/readView?bno=${replyUpdate.bno}"
+					   + "&page=${scri.page}"
+					   + "&perPageNum=${scri.perPageNum}"
+					   + "&searchType=${scri.searchType}"
+					   + "&keyword=${scri.keyword}";
+			})
+			
 		})
-
-		function regData(f) {
-			if ($("#userId").val() == "") {
-				alert("아이디를 입력해주세요.");
-				$("#userId").focus();
-				return false;
-			}
-			if ($("#userPass").val() == "") {
-				alert("비밀번호를 입력해주세요.");
-				$("#userPass").focus();
-				return false;
-			}
-			if ($("#userPass").val() != $("#userPass2").val()) {
-				alert("입력하신 비밀번호와 비밀번호 확인이 서로 다릅니다.");
-				$("#userPass").focus();
-				return false;
-			}
-			if ($("#userName").val() == "") {
-				alert("성명을 입력해주세요.");
-				$("#userName").focus();
-				return false;
-			}
-
-			var idChkVal = $("#idChk").val();
-
-			if (idChkVal == "N") {
-				alert("중복확인 버튼을 눌러주세요.");
-				return false;
-			} else if (idChkVal == "Y") {
-				f.submit();
-			}
-		}
-	});
-
-	function fn_idChk() {
-		var userid = $("#userId").val();
-		if (userid == "") {
-			alert("아이디를 입력하시기 바랍니다.");
-			$("#userId").focus();
-			return false;
-		}
-		var res;
-		$.ajax({
-			url : "/member/idChk",
-			type : "post", //get
-			dataType : "json",
-			data : {
-				"userId" : userid
-			},
-			success : function(data) {
-				res = parseInt(data);
-				if (res == 1) {
-					//$("#status").text("중복된 아이디입니다.");
-					alert("중복된 아이디입니다.");
-					return false;
-				} else if (res == 0) {
-					//$("#status").text("사용가능한 아이디입니다.");
-					$("#idChk").val("Y");
-					alert("사용가능한 아이디입니다.");
-					return false;
-				}
-			},
-			error : function() {
-				alert("에러입니다");
-				return false;
-			}
-		});
-	}
-</script>
+		
+	</script>
+<style>
+    #container { clear:both; width:1200px; margin: 0 auto; }
+    #regForm { width:520px; margin:50px auto; padding-top: 160px; }
+</style>
 <body>
-	<div id="container">
-		<header class="hd">
+	<div id="root">
+        <header class="hd">
             <div class="hd_wrap">
                 <div class="logo">
                     <a href="index.html">
@@ -519,35 +451,32 @@ h2 { text-align: center; padding-top: 200px; }
                 </nav>
             </div>
         </header>
-		<div class="content">
-			<form action="/member/registery" method="post" id="regForm" name="vo" onsubmit="return regData(this)">
-			<h2 class="title">회원가입</h2>
-				<div class="form-group has-feedback">
-					<label class="control-label" for="userId">아이디</label>
-					<input class="form-control" type="text" id="userId" name="userId" required />
-					<button class="idChkBtn" type="button" id="idChkBtn" onclick="fn_idChk();">중복확인</button>
-					<input type="hidden" id="idChk" value="N" />
-				</div>
-				<div class="form-group has-feedback">
-					<label class="control-label" for="userPass">패스워드</label>
-					<input class="form-control" type="password" id="userPass" name="userPass" required />
-				</div>
-				<div class="form-group has-feedback">
-					<label class="control-label" for="userPass2">패스워드 확인</label>
-					<input class="form-control" type="password" id="userPass2" name="userPass2" required />
-				</div>
-				<div class="form-group has-feedback">
-					<label class="control-label" for="userName">성명</label>
-					<input class="form-control" type="text" id="userName" name="userName" required />
-				</div>
-				<div class="form-group has-feedback">
-					<button class="btn btn-success" type="submit" id="submit"><a href="login.html">회원가입</a></button>
-					<button class="cencle btn btn-danger" type="button">취소</button>
-				</div>
-			</form>
-
+			<section id="container">
+				<form name="updateForm" role="form" method="post" id="regForm">
+					<input type="hidden" name="bno" value="${replyUpdate.bno}" readonly="readonly"/>
+					<input type="hidden" id="rno" name="rno" value="${replyUpdate.rno}" />
+					<input type="hidden" id="page" name="page" value="${scri.page}"> 
+					<input type="hidden" id="perPageNum" name="perPageNum" value="${scri.perPageNum}"> 
+					<input type="hidden" id="searchType" name="searchType" value="${scri.searchType}"> 
+					<input type="hidden" id="keyword" name="keyword" value="${scri.keyword}"> 
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<label for="content">댓글 내용</label>
+                                    <input type="text" id="content" name="content" value="댓글 내용 테스트" class="form-control" style ="width: 500px;"/>
+								</td>
+							</tr>	
+							
+						</tbody>			
+					</table>
+					<div>
+						<button type="submit" class="update_btn"><a href="board.html">저장</a></button>
+						<button type="button" class="cancel_btn">취소</button>
+					</div>
+				</form>
+			</section>
+			<hr />
 		</div>
-	</div>
-</body>
-
+	</body>
 </html>

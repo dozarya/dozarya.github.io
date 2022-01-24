@@ -31,106 +31,85 @@
 	<link rel="stylesheet" href="./js/datatables.min.css">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/common.css">
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<title>회원가입</title>
+	<!-- 합쳐지고 최소화된 최신 CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<!-- 부가적인 테마 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+ 	
+ 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 	
+ 	<title>게시판</title>
 <style>
 
-#container { clear:both; }
-.content { clear:both; }
-.log_wrap { clear:both; }
-.has-feedback .form-control { margin-top:10px; }
-.title { margin-bottom: 20px; }
-#regForm { width:700px; margin:50px auto; padding-top: 80px; }
+#container { clear:both; width:1200px; margin: 0 auto; }
+#regForm { width:520px; margin:50px auto; padding-top: 160px; }
 
-/* .content { clear:both; width:1200px; margin: 0 auto; }
-h2 { text-align: center; padding-top: 200px; }
-.regForm { width:450px; display:block; margin:30px auto; padding-left: 46px; }
-.form-control { line-height: 32px; margin: 10px; width: 320px; padding-left: 14px; } */
+.btn_group { padding-top: 18px; }
 
 </style>
 </head>
 <script type="text/javascript">
-	$(document).ready(function() {
-		// 취소
-		$(".cencle").on("click", function() {
-			location.href = "/";
-		})
-
-		function regData(f) {
-			if ($("#userId").val() == "") {
-				alert("아이디를 입력해주세요.");
-				$("#userId").focus();
-				return false;
-			}
-			if ($("#userPass").val() == "") {
-				alert("비밀번호를 입력해주세요.");
-				$("#userPass").focus();
-				return false;
-			}
-			if ($("#userPass").val() != $("#userPass2").val()) {
-				alert("입력하신 비밀번호와 비밀번호 확인이 서로 다릅니다.");
-				$("#userPass").focus();
-				return false;
-			}
-			if ($("#userName").val() == "") {
-				alert("성명을 입력해주세요.");
-				$("#userName").focus();
-				return false;
-			}
-
-			var idChkVal = $("#idChk").val();
-
-			if (idChkVal == "N") {
-				alert("중복확인 버튼을 눌러주세요.");
-				return false;
-			} else if (idChkVal == "Y") {
-				f.submit();
-			}
-		}
-	});
-
-	function fn_idChk() {
-		var userid = $("#userId").val();
-		if (userid == "") {
-			alert("아이디를 입력하시기 바랍니다.");
-			$("#userId").focus();
-			return false;
-		}
-		var res;
-		$.ajax({
-			url : "/member/idChk",
-			type : "post", //get
-			dataType : "json",
-			data : {
-				"userId" : userid
-			},
-			success : function(data) {
-				res = parseInt(data);
-				if (res == 1) {
-					//$("#status").text("중복된 아이디입니다.");
-					alert("중복된 아이디입니다.");
-					return false;
-				} else if (res == 0) {
-					//$("#status").text("사용가능한 아이디입니다.");
-					$("#idChk").val("Y");
-					alert("사용가능한 아이디입니다.");
+		$(document).ready(function(){
+			var formObj = $("form[name='updateForm']");
+			
+			$(document).on("click","#fileDel", function(){
+				$(this).parent().remove();
+			})
+			
+			fn_addFile();
+			
+			$(".cancel_btn").on("click", function(){
+				event.preventDefault();
+				location.href = "/board/readView?bno=${update.bno}"
+					   + "&page=${scri.page}"
+					   + "&perPageNum=${scri.perPageNum}"
+					   + "&searchType=${scri.searchType}"
+					   + "&keyword=${scri.keyword}";
+			})
+			
+			$(".update_btn").on("click", function(){
+				if(fn_valiChk()){
 					return false;
 				}
-			},
-			error : function() {
-				alert("에러입니다");
-				return false;
+				formObj.attr("action", "/board/update");
+				formObj.attr("method", "post");
+				formObj.submit();
+			})
+		})
+			
+		function fn_valiChk(){
+			var updateForm = $("form[name='updateForm'] .chk").length;
+			for(var i = 0; i<updateForm; i++){
+				if($(".chk").eq(i).val() == "" || $(".chk").eq(i).val() == null){
+					alert($(".chk").eq(i).attr("title"));
+					return true;
+				}
 			}
-		});
-	}
+		}
+ 		function fn_addFile(){
+			var fileIndex = 1;
+			//$("#fileIndex").append("<div><input type='file' style='float:left;' name='file_"+(fileIndex++)+"'>"+"<button type='button' style='float:right;' id='fileAddBtn'>"+"추가"+"</button></div>");
+			$(".fileAdd_btn").on("click", function(){
+				$("#fileIndex").append("<div><input type='file' style='float:left;' name='file_"+(fileIndex++)+"'>"+"</button>"+"<button type='button' style='float:right;' id='fileDelBtn'>"+"삭제"+"</button></div>");
+			});
+			$(document).on("click","#fileDelBtn", function(){
+				$(this).parent().remove();
+				
+			});
+		}
+ 		var fileNoArry = new Array();
+ 		var fileNameArry = new Array();
+ 		function fn_del(value, name){
+ 			
+ 			fileNoArry.push(value);
+ 			fileNameArry.push(name);
+ 			$("#fileNoDel").attr("value", fileNoArry);
+ 			$("#fileNameDel").attr("value", fileNameArry);
+ 		}
 </script>
 <body>
-	<div id="container">
-		<header class="hd">
+    <div id="root">
+        <header class="hd">
             <div class="hd_wrap">
                 <div class="logo">
                     <a href="index.html">
@@ -519,35 +498,65 @@ h2 { text-align: center; padding-top: 200px; }
                 </nav>
             </div>
         </header>
-		<div class="content">
-			<form action="/member/registery" method="post" id="regForm" name="vo" onsubmit="return regData(this)">
-			<h2 class="title">회원가입</h2>
-				<div class="form-group has-feedback">
-					<label class="control-label" for="userId">아이디</label>
-					<input class="form-control" type="text" id="userId" name="userId" required />
-					<button class="idChkBtn" type="button" id="idChkBtn" onclick="fn_idChk();">중복확인</button>
-					<input type="hidden" id="idChk" value="N" />
-				</div>
-				<div class="form-group has-feedback">
-					<label class="control-label" for="userPass">패스워드</label>
-					<input class="form-control" type="password" id="userPass" name="userPass" required />
-				</div>
-				<div class="form-group has-feedback">
-					<label class="control-label" for="userPass2">패스워드 확인</label>
-					<input class="form-control" type="password" id="userPass2" name="userPass2" required />
-				</div>
-				<div class="form-group has-feedback">
-					<label class="control-label" for="userName">성명</label>
-					<input class="form-control" type="text" id="userName" name="userName" required />
-				</div>
-				<div class="form-group has-feedback">
-					<button class="btn btn-success" type="submit" id="submit"><a href="login.html">회원가입</a></button>
-					<button class="cencle btn btn-danger" type="button">취소</button>
-				</div>
-			</form>
-
+			<hr />
+			
+			<section id="container">
+				<form name="updateForm" role="form" method="post" action="/board/update" enctype="multipart/form-data" id="regForm">
+					<input type="hidden" name="bno" value="${update.bno}" readonly="readonly"/>
+					<input type="hidden" id="page" name="page" value="${scri.page}"> 
+					<input type="hidden" id="perPageNum" name="perPageNum" value="${scri.perPageNum}"> 
+					<input type="hidden" id="searchType" name="searchType" value="${scri.searchType}"> 
+					<input type="hidden" id="keyword" name="keyword" value="${scri.keyword}"> 
+					<input type="hidden" id="fileNoDel" name="fileNoDel[]" value=""> 
+					<input type="hidden" id="fileNameDel" name="fileNameDel[]" value=""> 
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<label for="title">제목</label>
+									<input type="text" id="title" name="title" value="제목 테스트" class="form-control" title="제목을 입력하세요."/>
+								</td>
+							</tr>	
+							<tr>
+								<td>
+									<label for="content">내용</label>
+									<textarea id="content" name="content" class="form-control" cols="80" rows="10" title="내용을 입력하세요.">내용 테스트</textarea>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="writer">작성자</label>
+									<input type="text" id="writer" name="writer" value="작성자 테스트" class="form-control" readonly="readonly"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="regdate">작성날짜</label>
+									<fmt:formatDate value="날짜 테스트" pattern="yyyy-MM-dd"/>					
+								</td>
+							</tr>
+							<tr>
+								<td id="fileIndex">
+									<c:forEach var="file" items="${file}" varStatus="var">
+									<div>
+										<input type="hidden" id="FILE_NO" name="FILE_NO_${var.index}" value="${file.FILE_NO }">
+										<input type="hidden" id="FILE_NAME" name="FILE_NAME" value="FILE_NO_${var.index}">
+										<a href="#" id="fileName" onclick="return false;">파일이름 테스트</a>
+										<button id="fileDel" onclick="fn_del('${file.FILE_NO}','FILE_NO_${var.index}');" type="button">삭제</button><br>
+									</div>
+									</c:forEach>
+								</td>
+							</tr>
+						</tbody>			
+					</table>
+					<div>
+						<a href="board.html" class="update_btn">저장</a>
+						<button type="button" class="cancel_btn">취소</button>
+						<button type="button" class="fileAdd_btn">파일추가</button>
+					</div>
+				</form>
+			</section>
+			<hr />
 		</div>
-	</div>
-</body>
-
+	</body>
 </html>

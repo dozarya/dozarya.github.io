@@ -449,14 +449,11 @@
 
 					<c:forEach items="${list}" var="list">
 						<tr>
-							<td><c:out value="${list.bno}" /></td>
-							<td><a
-								href="/board/readView?bno=${list.bno}&page=${scri.page}&perPageNum=${scri.perPageNum}&searchType=${scri.searchType}&keyword=${scri.keyword}"><c:out
-										value="${list.title}" /></a></td>
-							<td><c:out value="${list.writer}" /></td>
-							<td><fmt:formatDate value="${list.regdate}"
-									pattern="yyyy-MM-dd" /></td>
-							<td><c:out value="${list.hit}" /></td>
+							<td>글 번호</td>
+							<td><a href="detailBoard.html">글 제목</a></td>
+							<td>글 작성자</td>
+							<td>글 작성날짜</td>
+							<td>글 조회수</td>
 						</tr>
 					</c:forEach>
 
@@ -480,7 +477,7 @@
 					<div class="col-xs-10 col-sm-10">
 						<div class="input-group">
 							<input type="text" name="keyword" id="keywordInput"
-								value="${scri.keyword}" class="form-control" /> <span
+								value="검색테스트" class="form-control" /> <span
 								class="input-group-btn">
 								<button id="searchBtn" type="button" class="btn btn-default">검색</button>
 							</span>
