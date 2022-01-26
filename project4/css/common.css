@@ -38,7 +38,7 @@ a { text-decoration: none; }
 
 .search_fr { clear: both; width: 300px; float: left; } 
 
-.search_box { height: 20px; margin-top: 12px; } 
+.search_box { height: 30px; margin-top: 12px; } 
 
 .gnb { clear: both; float: left; height: 40px; width: 1200px; background-color: #fff; margin-top: 30px; text-align: center; }
 
@@ -53,7 +53,7 @@ a { text-decoration: none; }
 
 .gnb li .sub li a { float: none; color:#000; } 
 
-.gnb li .sub li a:hover { color: red; } 
+.gnb li .sub li a:hover { color: red; text-decoration: underline; } 
 
 .gnb li:hover .sub { display: block; width: 100%; } 
 
